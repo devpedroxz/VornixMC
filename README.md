@@ -5,6 +5,7 @@ Este repositório contém os arquivos do **website do projeto**, incluindo pági
 ---
 
 # 📁 Estrutura do Projeto
+
 ├── Equipe/ # Página ou diretório responsável por mostrar a equipe staff
 ├── favicon.png # Ícone do site exibido na aba do navegador
 ├── index.css # Arquivo de estilos principal do site
