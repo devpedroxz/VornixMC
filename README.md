@@ -58,10 +58,10 @@ chmod +x restart.sh
 ```
 
 # Tecnologias Utilizadas:
-HTML5  
-CSS3  
-JavaScript  
-Bash  
+- HTML5  
+- CSS3  
+- JavaScript  
+- Bash  
 
 # 📌 Observações
 
