@@ -68,7 +68,7 @@ chmod +x restart.sh
 Este projeto foi desenvolvido para ser simples, leve e facilmente hospedado em qualquer servidor web.
 
 Ideal para:
-- Hospedagem em VPS;  
-- Servidores estáticos;  
-- Painéis web;  
-- Projetos pequenos e médios.  
+- Hospedagem em VPS  
+- Servidores estáticos  
+- Painéis web  
+- Projetos pequenos e médios  
