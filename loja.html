@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loja — VornixMC</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Exo+2:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <style>
+    /* ======== Reset ======== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ======== Variáveis ======== */
+    :root {
+      --bg: #0b0b0f;
+      --panel: #0f0f16;
+      --purple: #5b2ecc;
+      --gold: #d4af37;
+      --muted: #9aa0a6;
+      --glass: rgba(255, 255, 255, 0.03);
+      --card-glow: 0 10px 30px rgba(91, 46, 204, 0.12);
+      --max-width: 1200px;
+    }
+
+    html {
+      font-family: "Exo 2", sans-serif;
+      height: 100%;
+      background: url("https://i.postimg.cc/DzhT8CBY/2025-12-30-11-16-52.png") center/cover no-repeat fixed;
+      scroll-behavior: smooth;
+    }
+
+    /* ======== Base Styles ======== */
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ======== Custom Scrollbar ======== */
+    body {
+      scrollbar-width: thin;
+      /* Firefox */
+      scrollbar-color: var(--purple) var(--panel);
+    }
+
+    ::-webkit-scrollbar {
+      width: 20px;
+      height: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--panel);
+      border-radius: 0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--purple);
+      border-radius: 0;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3b1aa4;
+    }
+
+    ::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg,
+          rgba(11, 11, 15, 0.6),
+          rgba(11, 11, 15, 0.35));
+      border-radius: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      padding: 16px 24px;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: 95%;
+      height: 95%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .brand h1 {
+      font-family: "Bungee", sans-serif;
+      color: var(--gold);
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 8px;
+      font-size: 14px;
+      transition: color 0.2s ease, background 0.2s ease;
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background: linear-gradient(90deg,
+          rgba(91, 46, 204, 0.06),
+          rgba(212, 175, 55, 0.03));
+    }
+
+    .btn {
+      background: linear-gradient(90deg, var(--purple), #3b1aa4);
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: "Orbitron", sans-serif;
+      box-shadow: var(--card-glow);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(91, 46, 204, 0.2);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    h2 {
+      font-family: "Orbitron", sans-serif;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(10, 10, 15, 0.4);
+      backdrop-filter: blur(14px) brightness(0.8);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: var(--card-glow);
+      border-radius: 12px;
+      padding: 22px;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(-60px);
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .card img {
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: var(--gold);
+      font-family: "Orbitron", sans-serif;
+    }
+
+    .price {
+      font-family: "Orbitron", sans-serif;
+      color: var(--gold);
+      font-size: 20px;
+      margin: 8px 0;
+    }
+
+    .buy {
+      background: linear-gradient(90deg, var(--purple), #3b1aa4);
+      border: none;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-family: "Orbitron", sans-serif;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .buy:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(91, 46, 204, 0.2);
+    }
+
+    #logoheader {
+      margin-left: 25px;
+    }
+
+    .payment-section {
+      background: rgba(10, 10, 15, 0.4);
+      backdrop-filter: blur(14px) brightness(0.8);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .select {
+      width: 100%;
+      max-width: 280px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: transparent;
+      color: #fff;
+      font-family: "Exo 2", sans-serif;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      background: rgba(10, 10, 15, 0.4);
+      backdrop-filter: blur(14px) brightness(0.8);
+      border-radius: 12px;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Atraso progressivo para cards */
+    .card:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .card:nth-child(3) {
+      animation-delay: 0.1s;
+    }
+
+    .card:nth-child(4) {
+      animation-delay: 0.1s;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg,
+          rgba(11, 11, 15, 0.6),
+          rgba(11, 11, 15, 0.35));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 20px;
+    }
+
+    .btn {
+      margin-right: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="https://vornixmc.com.br" style="text-decoration: none; color: inherit;">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <img src="https://i.postimg.cc/rmcZ134c/favicon.png" alt="VornixMC" />
+          </div>
+          <div>
+            <h1>VornixMC</h1>
+            <div style="font-size: 20px; color: var(--muted); margin-top: 4px;">
+              Survival Vanilla
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <nav aria-label="main navigation">
+        <a href="https://vornixmc.com.br">Home</a>
+        <a href="https://vornixmc.com.br/#vips">VIPs</a>
+        <a href="https://loja.vornixmc.com.br">Loja</a>
+        <a href="https://equipe.vornixmc.com.br">Equipe</a>
+        <a href="https://vornixmc.com.br/#sobre">Sobre</a>
+        <a href="https://discord.gg/KCkPMUySdq">Discord</a>
+      </nav>
+
+      <div class="cta">
+        <button class="btn pulse" id="playNow">Jogar Agora</button>
+      </div>
+    </header>
+
+
+    <main>
+      <section>
+        <p style="color: white; text-align: center; text-decoration: none;">Ao realizar compras você concorda com os <a
+            style="color: white" href="https://termos.vornixmc.com.br">Termos de Uso e Compras</a></p>
+      </section>
+      <!-- Seção Planos VIP -->
+      <section id="loja-oficial">
+        <h2 style="margin-top: 25px">Planos VIP</h2>
+
+        <div class="store-grid">
+          <!-- VIP Redstone -->
+          <div class="card">
+            <img src="https://i.postimg.cc/7Zq9R6Ct/redstone.png" alt="VIP Redstone" />
+            <h3>VIP Redstone</h3>
+            <div class="price">R$9,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Acesso ao VIP Redstone por 30 dias</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('VIP Redstone 30 Dias')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- VIP Diamante -->
+          <div class="card">
+            <img src="https://i.postimg.cc/RZvdYF3s/diamond.png" alt="VIP Diamante" />
+            <h3>VIP Diamante</h3>
+            <div class="price">R$29,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui VIP Diamante por 30 dias</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('VIP Diamante 30 Dias')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- VIP Netherite -->
+          <div class="card">
+            <img src="https://i.postimg.cc/6pBcP37H/netherite.png" alt="VIP Netherite" />
+            <h3>VIP Netherite</h3>
+            <div class="price">R$39,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui VIP Netherite por 30 dias</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('VIP Netherite 30 Dias')">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <div class="store-grid" style="margin-top: 20px">
+          <!-- VIP Netherite Season -->
+          <div class="card">
+            <img src="https://i.postimg.cc/6pBcP37H/netherite.png" alt="VIP Netherite Season" />
+            <h3>VIP Netherite Season</h3>
+            <div class="price">R$299,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui VIP Netherite durante toda a Season Atual</li>
+              <li>Consulte vantagens na página principal</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('Netherite Season')">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seção Chaves Especiais -->
+      <section id="keys" style="margin-top: 40px">
+        <h2>Chaves Especiais</h2>
+
+        <div class="store-grid">
+          <!-- Chave Comum -->
+          <div class="card">
+            <img src="https://i.postimg.cc/T2jmPC64/35df2ecf-abad-4ac6-8f1e-4cdfa87da07f.png" alt="Chave Comum" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>5x Chaves Comum</h3>
+            <div class="price">R$0,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Utilizadas para abrir caixas comuns.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('5 Chaves Comum')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- Chave VIP Redstone -->
+          <div class="card">
+            <img src="https://i.postimg.cc/FFbcKD4M/Imagem-do-Whats-App-de-2025-10-24-as-15-47-27-9839d72d.jpg"
+              alt="Chave VIP Redstone" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>5x Chaves VIP Redstone</h3>
+            <div class="price">R$1,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Abre caixas com recompensas VIP Redstone.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('5 Chaves Redstone')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- Chave VIP Diamante -->
+          <div class="card">
+            <img src="https://i.postimg.cc/jq6NjZbB/Imagem-do-Whats-App-de-2025-110-24-as-15-42-32-6e974147.jpg"
+              alt="Chave VIP Diamante" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>5x Chaves VIP Diamante</h3>
+            <div class="price">R$4,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Abre caixas com recompensas VIP Diamante.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('5 Chaves Diamante')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- Chave VIP Netherite -->
+          <div class="card">
+            <img src="https://i.postimg.cc/Vs9MND8p/Imagem-do-Whats-App-de-2025-10-24-as-15-50-45-e951095b.jpg"
+              alt="Chave VIP Netherite" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>5x Chaves VIP Netherite</h3>
+            <div class="price">R$9,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Abre caixas com recompensas VIP Netherite.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('5 Chaves Netherite')">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <!-- Chave Spawner -->
+        <div class="store-grid" style="margin-top: 20px">
+          <div class="card" style="grid-column: span 2; padding: 28px 24px">
+            <img src="https://i.postimg.cc/8kdWCtSq/Imagem-do-Whats-App-de-2025-10-24-as-15-42-32-6e974147.jpg"
+              alt="Chave Spawner" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>Chave Spawner</h3>
+            <div class="price">R$4,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Abre caixas com spawners raros e exclusivos.</li>
+              <li>Disponível em eventos ou compra direta.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('Chave Spawner')">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="gems" style="margin-top: 40px">
+        <h2>Gemas</h2>
+        <div class="store-grid" id="gems">
+          <!-- 35x Gemas -->
+          <div class="card">
+            <img src="https://i.postimg.cc/tJQHgcH8/732afe91-471f-48dc-a111-9a46dea33eb7-removebg-preview.png"
+              alt="35 Gemas" />
+            <h3>35x Gemas</h3>
+            <div class="price">R$4,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui 35x VornixGems</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('35 Gemas')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- 75x Gemas -->
+          <div class="card">
+            <img src="https://i.postimg.cc/tJQHgcH8/732afe91-471f-48dc-a111-9a46dea33eb7-removebg-preview.png"
+              alt="20 Gemas" />
+            <h3>75x Gemas</h3>
+            <div class="price">R$9,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui 75x VornixGems</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('75 Gemas')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- 100x Gemas -->
+          <div class="card">
+            <img src="https://i.postimg.cc/tJQHgcH8/732afe91-471f-48dc-a111-9a46dea33eb7-removebg-preview.png"
+              alt="100 Gemas" />
+            <h3>150x Gemas</h3>
+            <div class="price">R$19,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui 150x VornixGems</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('150 Gemas')">
+              Comprar
+            </button>
+          </div>
+        </div>
+
+        <!-- 300x Gemas -->
+        <div class="store-grid" style="margin-top: 5px">
+          <div class="card" style="grid-column: span 2; padding: 28px 24px">
+            <img src="https://i.postimg.cc/tJQHgcH8/732afe91-471f-48dc-a111-9a46dea33eb7-removebg-preview.png"
+              alt="300 Gemas" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>300x Gemas</h3>
+            <div class="price">R$39,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui 300x VornixGems</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('300 Gemas')">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="claim-blocks" style="margin-top: 40px">
+        <!-- Blocos de terreno -->
+        <h2>Blocos de Terreno</h2>
+        <div class="store-grid" style="margin-top: 5px" id="extra">
+          <div class="card" style="grid-column: span 2; padding: 28px 24px">
+            <img src="https://i.postimg.cc/6QkrktCk/Grass-Block-(graphics-fast)-JE3.png" alt="Blocos" style="
+                  border-radius: 14px;
+                  border: 2px solid rgba(255, 255, 255, 0.08);
+                " />
+            <h3>Aumento de permissão de terreno para 64x64</h3>
+            <div class="price">R$4,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>
+                Inclui status de 64x64 (1024 blocos) para proteção de
+                terrenos.
+              </li>
+            </ul>
+            <button class="buy" onclick="goToPayment('Blocos')">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="revogar" style="margin-top: 40px">
+        <!-- Unban -->
+        <h2>Revogações</h2>
+        <div class="store-grid" style="margin-top: 20px">
+          <div class="card" style="grid-column: span 2; padding: 28px 24px">
+            <img src="https://i.postimg.cc/J4f2QV2P/barrier.png" alt="Unban" style="
+                border-radius: 14px;
+                border: 2px solid rgba(255, 255, 255, 0.08);
+              " />
+            <h3>Unban</h3>
+            <div class="price">R$29,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui desbanimento em nosso servidor.</li>
+              <li>
+                Dependendo da gravidade do banimento, o unban pode não ser
+                possível.
+              </li>
+              <li>Consulte no nosso ticket do Discord.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('Unban')">Comprar</button>
+          </div>
+
+          <div class="card" style="grid-column: span 2; padding: 28px 24px">
+            <img src="https://i.postimg.cc/G27cpR2j/paper1.png" alt="Reset P" style="
+                border-radius: 14px;
+                border: 2px solid rgba(255, 255, 255, 0.08);
+              " />
+            <h3>Perdão das punições</h3>
+            <div class="price">R$14,99</div>
+            <ul style="color: var(--muted); list-style: none; margin: 10px 0">
+              <li>Inclui perdão de suas punições em nosso servidor.</li>
+              <li>Consulte no nosso ticket do Discord.</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('Perdão')">Comprar</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong style="color: var(--gold)">VornixMC</strong><br />
+        IP: <span style="font-family: Orbitron">jogar.vornixmc.com.br</span>
+      </div>
+      <div>
+        <a href="https://discord.gg/75ACC7wNsN">Discord</a> |
+        <a href="https://www.instagram.com/vornixmc/">Instagram</a> |
+        <a href="https://termos.vornixmc.com.br/">Termos de Uso e Compras</a>
+      </div>
+      <div style="width: 100%; text-align: center; margin-top: 10px">
+        © <span id="year"></span> VornixMC — Todos os direitos reservados.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function goToPayment(vip) {
+      window.location.href = `pagamento.html?vip=${encodeURIComponent(vip)}`;
+    }
+  </script>
+</body>
+
+</html>

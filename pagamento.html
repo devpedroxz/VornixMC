@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pagamento — VornixMC</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Exo+2:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="index.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+</head>
+
+<body>
+
+  <!-- Wrapper padrão do site -->
+  <div class="site">
+
+    <!-- ===== HEADER ===== -->
+    <header>
+      <a href="https://vornixmc.com.br" style="text-decoration:none; color:inherit;">
+        <div class="brand">
+          <div class="logo">
+            <img src="https://i.postimg.cc/rmcZ134c/favicon.png" alt="VornixMC">
+          </div>
+          <div>
+            <h1>VornixMC</h1>
+            <div style="font-size:16px; color:var(--muted); margin-top:4px;">
+              Área de Pagamento
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <a href="https://vornixmc.com.br">Home</a>
+        <a href="https://vornixmc.com.br/#vips">VIPs</a>
+        <a href="https://loja.vornixmc.com.br">Loja</a>
+        <a href="https://equipe.vornixmc.com.br">Equipe</a>
+        <a href="https://vornixmc.com.br/#sobre">Sobre</a>
+        <a href="https://discord.gg/KCkPMUySdq">Discord</a>
+      </nav>
+
+      <div class="cta">
+        <button class="btn pulse" id="playNow">Jogar Agora</button>
+      </div>
+    </header>
+
+    <!-- ===== CONTEÚDO ===== -->
+    <main style="margin-top:40px; display:flex; justify-content:center;">
+      <div class="hero-card" style="max-width:520px; width:100%; text-align:center;">
+
+        <h2 class="hero-title" id="plan-title">Pagamento via Pix</h2>
+        <p class="hero-sub">
+          Escaneie o QR Code abaixo para concluir o pagamento
+        </p>
+
+        <img id="qr-code" src="" alt="QR Code Pix"
+          style="width:220px; height:220px; border-radius:12px; margin:20px auto; display:block;" />
+
+        <p class="hero-sub" id="pix-key" style="word-break:break-all;"></p>
+
+        <button class="btn" id="copy-btn">Copiar Chave Pix</button>
+        <div id="copied-msg" class="tooltip">✅ Chave copiada com sucesso!</div>
+
+        <p class="hero-sub" style="margin-top:24px;">
+          Após o pagamento, envie o comprovante no nosso Discord para ativação do produto.
+        </p>
+
+        <button class="btn" onclick="window.location.href='https://discord.gg/tyfMmZrbMn'">
+          Enviar Comprovante
+        </button>
+
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div>
+        <strong style="color:var(--gold);">VornixMC</strong><br />
+        IP: <span style="font-family:Orbitron;">jogar.vornixmc.com.br</span>
+      </div>
+
+      <div class="socials">
+        <a href="https://discord.gg/75ACC7wNsN">Discord</a>
+        <a href="https://www.instagram.com/vornixmc/">Instagram</a>
+      </div>
+
+      <div style="width:100%; text-align:center;">
+        © <span id="year"></span> VornixMC — Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const vipData = {
+      "VIP Redstone 30 Dias": { qr: "https://i.postimg.cc/BnnNh02N/Imagem-do-Whats-App-de-2025-11-02-a-s-23-36-23-a3902bf0.jpg", chave: "00020101021126580014br.gov.bcb.pix01361e24aa65-b34c-47fa-87bc-cabf305951e852040000530398654049.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049609" },
+      "VIP Diamante 30 Dias": { qr: "https://i.postimg.cc/t44DrjFm/Imagem-do-Whats-App-de-2025-11-02-a-s-23-35-00-4bd32ed3.jpg", chave: "00020101021126580014br.gov.bcb.pix01361e24aa65-b34c-47fa-87bc-cabf305951e8520400005303986540529.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***630429EC" },
+      'VIP Netherite 30 Dias': { qr: "https://i.postimg.cc/RZZGPBwD/Imagem-do-Whats-App-de-2025-11-02-a-s-23-35-31-00c4701b.jpg", chave: "00020101021126360014br.gov.bcb.pix0114+5537998460393520400005303986540539.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63044980" },
+      "Netherite Season": { qr: "https://i.postimg.cc/hj6dvYMM/149-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a5204000053039865406149.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***6304DD96" },
+      "5 Chaves Comum": { qr: "https://i.postimg.cc/sDthsb1D/0-99.jpg", chave: "00020101021126580014br.gov.bcb.pix01361e24aa65-b34c-47fa-87bc-cabf305951e852040000530398654040.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63048AB5" },
+      "5 Chaves Redstone": { qr: "https://i.postimg.cc/HxZrKhFB/1-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a52040000530398654041.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63042F7A" },
+      "5 Chaves Diamante": { qr: "https://i.postimg.cc/rwNF3Hrg/4-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a52040000530398654044.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049E9B" },
+      "5 Chaves Netherite": { qr: "https://i.postimg.cc/BnnNh02N/Imagem-do-Whats-App-de-2025-11-02-a-s-23-36-23-a3902bf0.jpg", chave: "00020101021126580014br.gov.bcb.pix01361e24aa65-b34c-47fa-87bc-cabf305951e852040000530398654049.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049609" },
+      "Chave Spawner": { qr: "https://i.postimg.cc/rwNF3Hrg/4-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a52040000530398654044.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049E9B" },
+      "35 Gemas": { qr: "https://i.postimg.cc/rwNF3Hrg/4-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a52040000530398654044.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049E9B" },
+      "75 Gemas": { qr: "https://i.postimg.cc/BnnNh02N/Imagem-do-Whats-App-de-2025-11-02-a-s-23-36-23-a3902bf0.jpg", chave: "00020101021126580014br.gov.bcb.pix01361e24aa65-b34c-47fa-87bc-cabf305951e852040000530398654049.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049609" },
+      "150 Gemas": { qr: "https://i.postimg.cc/Bvt9p7cm/19-99.jpg", chave: "00020101021126360014br.gov.bcb.pix0114+55379984603935204000053039865802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63042E2C" },
+      "300 Gemas": { qr: "https://i.postimg.cc/RZZGPBwD/Imagem-do-Whats-App-de-2025-11-02-a-s-23-35-31-00c4701b.jpg", chave: "00020101021126360014br.gov.bcb.pix0114+5537998460393520400005303986540539.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63044980" },
+      "Blocos": { qr: "https://i.postimg.cc/rwNF3Hrg/4-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a52040000530398654044.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63049E9B" },
+      "Unban": { qr: "https://i.postimg.cc/1txCFvW8/29-99.jpg", chave: "00020101021126580014br.gov.bcb.pix01361e24aa65-b34c-47fa-87bc-cabf305951e8520400005303986540529.995802BR5916PEDRO H C SANTOS6006ITAUNA62070503***630429EC" },
+      "Perdão": { qr: "https://i.postimg.cc/MpQ1Bqgz/14-99.jpg", chave: "00020101021126580014br.gov.bcb.pix0136f55932fa-fc35-47b5-b187-3e4821eaa82a520400005303986540515.005802BR5916PEDRO H C SANTOS6006ITAUNA62070503***63040CCB" },
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const vip = (params.get("vip") || "VIP Redstone")
+      .replace(/\u00A0/g, " ")
+      .trim();
+
+
+    if (!vipData[vip]) {
+      alert("Produto inválido. Redirecionando para VIP Redstone.");
+      window.location.href = "pagamento.html?vip=" + encodeURIComponent("VIP Redstone");
+    }
+
+    document.getElementById("plan-title").textContent =
+      `Pagamento do produto ${vip} via Pix`;
+
+    document.getElementById("qr-code").src = vipData[vip].qr;
+    document.getElementById("pix-key").textContent =
+      `Chave Copia e Cola:\n${vipData[vip].chave}`;
+
+    const copyBtn = document.getElementById("copy-btn");
+    const tooltip = document.getElementById("copied-msg");
+
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(vipData[vip].chave).then(() => {
+        tooltip.classList.add("show");
+        setTimeout(() => tooltip.classList.remove("show"), 2000);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

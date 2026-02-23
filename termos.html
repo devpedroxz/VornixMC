@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VornixMC • Termos & Privacidade</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Exo+2:wght@300;600;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --purple: #5b2ecc;
+      --gold: #d4af37;
+      --muted: #9aa0a6;
+      --card-glow: 0 10px 30px rgba(91, 46, 204, 0.12);
+      --max-width: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+      font-family: "Exo 2", sans-serif;
+      color: #e6e6e6;
+      background: url("https://i.postimg.cc/DzhT8CBY/2025-12-30-11-16-52.png") center/cover no-repeat fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+
+    .site {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(11, 11, 15, 0.6), rgba(11, 11, 15, 0.35));
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 90px;
+      height: 90px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .brand h1 {
+      font-family: "Bungee", sans-serif;
+      color: var(--gold);
+      font-size: 20px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    main {
+      margin-top: 40px;
+    }
+
+    .terms-section {
+      margin: 40px auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-family: "Orbitron", sans-serif;
+      color: var(--gold);
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .terms-card {
+      background: rgba(15, 15, 22, 0.45);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 24px;
+      box-shadow: var(--card-glow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    .terms-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(91, 46, 204, 0.25);
+    }
+
+    .card-title {
+      font-family: "Orbitron", sans-serif;
+      color: var(--gold);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .terms-card p,
+    .terms-card li {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    footer {
+      margin: 40px auto 20px;
+      padding: 20px;
+      text-align: center;
+      color: var(--muted);
+      border-radius: 12px;
+      background: rgba(10, 10, 15, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="site">
+
+    <header>
+      <a href="https://vornixmc.com.br" style="text-decoration:none;color:inherit">
+        <div class="brand">
+          <div class="logo">
+            <img src="https://i.postimg.cc/rmcZ134c/favicon.png" alt="VornixMC">
+          </div>
+          <div>
+            <h1 style="margin-left: 15px">VornixMC</h1>
+            <div style="margin-left: 15px" style="color:var(--muted)">Termos & Privacidade</div>
+          </div>
+        </div>
+      </a>
+
+      <nav>
+        <a href="https://vornixmc.com.br">Home</a>
+        <a href="https://loja.vornixmc.com.br">Loja</a>
+        <a href="https://equipe.vornixmc.com.br">Equipe</a>
+        <a href="https://discord.gg/KCkPMUySdq">Discord</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="terms-section">
+        <div class="section-header">
+          <h2>Termos de Compra & Uso</h2>
+          <p style="color: white">
+            Ao realizar qualquer compra ou utilizar nossos serviços, você
+            concorda automaticamente com todas as regras abaixo.
+          </p>
+        </div>
+
+        <div class="terms-grid">
+          <!-- Card 1 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">📜</span> Natureza das Compras
+            </h3>
+            <p>
+              Todas as compras realizadas em nossa loja são tratadas como
+              <strong>apoio ao servidor</strong>, destinadas
+              exclusivamente às manutenções, hospedagem, desenvolvimento
+              e melhoria contínua do servidor e da comunidade.<br /> <br>
+
+              Esses benefícios (VIPs, KITs, itens, chaves, cosméticos etc.)
+              <strong>não possuem valor real ou monetário fora do ambiente do
+                servidor</strong>
+              e são concedidos exclusivamente para enriquecer a experiência de
+              jogo dos apoiadores. Eles podem ser alterados, removidos ou <strong>
+                descontinuados da loja</strong> a qualquer momento.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">👤</span> Uso Exclusivo
+            </h3>
+            <p>
+              <strong>Itens, kits, chaves, ranks, permissões e quaisquer
+                benefícios</strong>
+              adquiridos na loja são
+              <strong>estritamente pessoais e intransferíveis</strong>.<br /><br />
+
+              Eles ficam vinculados
+              <strong>permanentemente e exclusivamente à conta (nickname +
+                UUID)</strong>
+              informada no momento da compra. Após a entrega automática,
+              <strong>a equipe não realiza nenhum tipo de transferência, troca de
+                conta, correção ou ajuste</strong>, exceto em alguns casos, dos quais podem ser avaliados via
+              Ticket<br /><br />
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">🔄</span> Política de Reembolso
+            </h3>
+            <p>
+              Reembolsos são <strong>avaliados individualmente</strong> por meio de um
+              ticket.
+            </p>
+            <p style="text-align: left"><strong>NÃO</strong> é reembolsado situações como:</p>
+            <ul class="no-refund-list" style="text-align: left">
+              <li>Arrependimento ou mudança de ideia</li>
+              <li>Perda de itens (por morte, wipe, etc.)</li>
+              <li>Punições temporárias ou banimentos</li>
+              <li>Wipes ou reset do servidor</li>
+              <li>Casos de acesso indevido à conta do jogador, independentemente do motivo</li>
+              <li>Jogadores desinteressados com o jogo</li>
+              <li>Compras realizadas por terceiros com acesso ao dispositivo/conta</li>
+              <li>Situações que após análises, não forem consideradas elegíveis para reembolso.</li>
+            </ul>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">📊</span> Atualizações e Resets
+            </h3>
+            <p>
+              O servidor pode passar por
+              <strong>wipes, resets, alterações de economia ou plugins</strong>
+              a qualquer momento.<br /><br />
+              Benefícios, itens, tags, chaves, VornixShulkers e cosméticos adquiridos na temporada anterior <strong>não
+                são garantidos</strong> após
+              Wipes, exceto quando previamente informado.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">⚠️</span> Fraudes e Chargeback
+            </h3>
+            <p>
+              Qualquer tentativa/sucesso de estorno unilateral, chargeback ou fraude
+              resultará em
+              <strong>banimento permanente e irrevogável</strong> da conta no
+              servidor e Discord, sem aviso prévio. <br> <br> Caso desejar solicitar reembolso, abra um ticket para que
+              nossa equipe avalie sem aplicar qualquer punição.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">🔒</span> Responsabilidades do Jogador
+            </h3>
+            <p>
+              Cabe ao jogador manter a segurança de sua conta e seguir todas
+              as regras do servidor e Discord, as quais expressadas no canal
+              de regras do Discord. <br><br>
+              Quebras de regras das quais envolvam itens, podem ser removidos
+              do jogador, além da punição de acordo com a gravidade da infração.
+            </p>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="terms-card">
+            <h3 class="card-title">
+              <span class="icon">✍️</span> Alterações nos Termos
+            </h3>
+            <p>
+              Podemos atualizar estes termos a qualquer momento. As mudanças
+              entram em vigor imediatamente após publicação nesta página.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <style>
+        .terms-section {
+          margin: 40px auto;
+          max-width: var(--max-width);
+          padding: 20px;
+        }
+
+        .section-header {
+          text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+          font-family: "Orbitron", sans-serif;
+          color: var(--gold);
+          font-size: 38px;
+          margin-bottom: 12px;
+          text-shadow: 0 2px 12px rgba(212, 175, 55, 0.2);
+        }
+
+        .section-header p {
+          color: var(--muted);
+          font-size: 16px;
+        }
+
+        .terms-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 24px;
+        }
+
+        .terms-card {
+          background: rgba(15, 15, 22, 0.45);
+          backdrop-filter: blur(14px);
+          border: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 16px;
+          padding: 24px;
+          box-shadow: var(--card-glow);
+          transition: all 0.3s ease;
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .terms-card:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+
+        .terms-card:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        .terms-card:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+
+        .terms-card:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+
+        .terms-card:nth-child(5) {
+          animation-delay: 0.5s;
+        }
+
+        .terms-card:nth-child(6) {
+          animation-delay: 0.6s;
+        }
+
+        .terms-card:nth-child(7) {
+          animation-delay: 0.7s;
+        }
+
+        .terms-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 16px 40px rgba(91, 46, 204, 0.25);
+          border-color: rgba(91, 46, 204, 0.3);
+        }
+
+        .terms-card.warning {
+          border-left: 4px solid #ff6b6b;
+          background: rgba(255, 107, 107, 0.08);
+        }
+
+        .card-title {
+          font-family: "Orbitron", sans-serif;
+          color: var(--gold);
+          font-size: 20px;
+          margin-bottom: 14px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .card-title .icon {
+          font-size: 24px;
+        }
+
+        .terms-card p {
+          color: #e6e6e6;
+          line-height: 1.6;
+          margin-bottom: 12px;
+          font-size: 15px;
+        }
+
+        .terms-card ul {
+          margin: 12px 0;
+          padding-left: 20px;
+        }
+
+        .terms-card ul li {
+          margin: 8px 0;
+          color: #ddd;
+        }
+
+        .highlight {
+          background: rgba(91, 46, 204, 0.2);
+          padding: 10px;
+          border-radius: 8px;
+          border-left: 3px solid var(--purple);
+          font-weight: 600;
+          color: #fff;
+          margin-top: 12px;
+        }
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      </style>
+
+
+      <section class="terms-section">
+        <div class="section-header">
+          <h2>Política de Privacidade</h2>
+          <p style="color: white; margin-bottom: 50px">
+            Ao acessar o servidor ou o site do VornixMC,
+            o usuário declara estar ciente e de acordo com esta Política de Privacidade.
+          </p>
+
+
+          <div class="terms-grid" style="text-align: left">
+            <!-- Card 1 -->
+            <div class="terms-card">
+              <h3 class="card-title">
+                <span class="icon">📨</span>Utilização dos Dados
+              </h3>
+              <p>
+                O VornixMC trata os dados conforme a <br> <strong>LGPD (Lei nº 13.709/2018)</strong>, usando as
+                informações apenas para as finalidades desta Política, com segurança e transparência.
+                <br><br>
+                Esses dados também permitem
+                identificar jogadores, prevenir fraudes, aplicar punições quando necessário e assegurar que todos os
+                sistemas operem de forma estável e confiável.
+                <br> <br>
+                Os dados fornecidos pelos usuários <strong>jamais serão divulgados</strong> publicamente ou repassados a
+                terceiros sem consentimento, exceto quando exigido por lei.
+
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="terms-card">
+              <h3 class="card-title">
+                <span class="icon" style="color: yellow">💾</span>Dados coletados dentro do servidor
+              </h3>
+              <p>
+                <strong>Essenciais para autenticação, identificação e segurança:</strong>
+              <ul style="text-align: left">
+                <li> Nickname do jogador </li>
+                <li> UUID </li>
+                <li> Endereço IP </li>
+                <li> Horários de login e logout </li>
+                <li> Tentativas de login (sucesso ou falha) </li>
+                <li> Senhas de acesso (registro e login) </li>
+              </ul>
+
+              <p> A equipe VornixMC recomenda fortemente que os usuários não utilizem senhas iguais às de outras
+                plataformas, garantindo maior segurança de suas contas.</p>
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="terms-card">
+              <h3 class="card-title">
+                <span class="icon">🛒</span> Dados coletados através de compras
+              </h3>
+              <p>
+                <strong>Necessários para processar pagamentos e validar benefícios no servidor:</strong>
+              </p>
+              <ul class="dados-compras-list" style="text-align: left">
+                <li>Nome do indivíduo</li>
+                <li>Data e horário de transação</li>
+                <li>Valor da compra</li>
+                <li>ID de transação</li>
+                <li>Instituição financeira do pagamento</li>
+              </ul>
+              <p>Essas informações servem apenas para confirmar pagamentos e liberar os benefícios adquiridos. Os dados
+                permanecem protegidos e não são compartilhados, salvo quando exigido por lei.</p>
+            </div>
+          </div>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> VornixMC — Todos os direitos reservados.
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

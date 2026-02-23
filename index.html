@@ -1,443 +1,356 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>VornixMC — Survival Vanilla</title>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Exo+2:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
-      rel="stylesheet"
-    /> <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VornixMC — Survival Vanilla</title>
 
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Exo+2:wght@300;600;800&family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
-  </head>
-  <body>
-    <canvas id="particles"></canvas>
+  <!-- CSS -->
+  <link rel="stylesheet" href="index.css" />
+</head>
 
-    <div class="site">
-      <header>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="site">
+    <!-- ======== Header ======== -->
+    <header>
+      <a href="https://vornixmc.com.br" style="text-decoration: none; color: inherit;">
         <div class="brand">
           <div class="logo" aria-hidden="true">
-            <img src="https://i.postimg.cc/Dw563Tsp/vornix-logotransparente.png" alt="VornixMC" />
+            <img src="https://i.postimg.cc/rmcZ134c/favicon.png" alt="VornixMC" />
           </div>
           <div>
             <h1>VornixMC</h1>
             <div style="font-size: 20px; color: var(--muted); margin-top: 4px">
-              Survival Vanilla • Comunidade ativa
+              Survival Vanilla
             </div>
           </div>
         </div>
+      </a>
 
-        <nav aria-label="main navigation">
-          <a href="#home">Home</a>
-          <a href="#vips">VIPs</a>
-          <a href="#loja">Loja</a>
-          <a href="#sobre">Sobre</a>
-          <a href="https://discord.gg/w6NQXFJ33A">Discord</a>
-        </nav>
-        
-        <div class="cta">
-          <button class="btn pulse" id="playNow">Jogar Agora</button>
-          <button
-            class="btn secondary"
-            id="menuToggle"
-            aria-expanded="false"
-            style="display: none"
-          >
-            Menu
-          </button>
-        </div>
-      </header>
+      <nav aria-label="main navigation">
+        <a href="https://vornixmc.com.br">Home</a>
+        <a href="https://vornixmc.com.br/#vips">VIPs</a>
+        <a href="https://loja.vornixmc.com.br">Loja</a>
+        <a href="https://equipe.vornixmc.com.br">Equipe</a>
+        <a href="https://vornixmc.com.br/#sobre">Sobre</a>
+        <a href="https://discord.gg/KCkPMUySdq">Discord</a>
+      </nav>
 
-      <main>
-        <!-- HERO COM BANNER AO LADO -->
-        <section class="hero-with-banner" id="home">
-          <!-- Coluna da esquerda: Conteúdo principal + Banner -->
-          <div class="banner-section">
-            <div class="hero-card">
-              <h2 class="hero-title">VORNIXMC — Survival Vanilla</h2>
-              <p class="hero-sub">
-                Aventura. Comunidade. Glória. Eventos semanais e economia justa.
-              </p>
+      <div class="cta">
+        <button class="btn pulse" id="playNow">Jogar Agora</button>
+        </button>
+      </div>
+    </header>
 
-              <div class="hero-actions">
-                <button class="ip-btn" id="copyIpBtn">
-                  Copiar IP do Servidor
-                </button>
-                <button class="btn" id="openStoreBtn">Ir pra Loja</button>
-                <div
-                  class="status online"
-                >
-                  <span class="dot"></span>
-                  <span id="statusText">Online</span>
+    <!-- ======== Main ======== -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-with-banner" id="home">
+        <!-- Conteúdo principal e banner -->
+        <div class="banner-section">
+          <div class="hero-card">
+            <h2 class="hero-title">VORNIXMC — Survival Vanilla</h2>
+            <p class="hero-sub">
+              Aventura. Comunidade. Glória. Eventos semanais e economia justa.
+            </p>
+
+            <div class="hero-actions">
+              <button class="ip-btn" id="copyIpBtn">
+                Copiar IP do Servidor
+              </button>
+              <div class="status online">
+                <span class="dot"></span>
+                <span id="statusText">Online</span>
+              </div>
+
+              <!-- Banner Discord -->
+              <div class="hero-card discord-banner">
+                <div style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 12px;
+                    ">
+                  <strong style="color: var(--gold)">Junte-se ao Discord</strong>
+                  <small style="color: var(--muted)">Comunidade ativa</small>
                 </div>
-
-            <div class="hero-card discord-banner">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <strong style="color: var(--gold)">Junte-se ao Discord</strong>
-                <small style="color: var(--muted)">Comunidade ativa</small>
-            </div>
-    
-    <p style="color: var(--muted); margin-bottom: 20px;">
-        Participe da nossa comunidade no discord para ficar por dentro de todas as atualizações!
-    </p>
-    
-    <div class="hero-actions">
-        <a href="https://discord.gg/w6NQXFJ33A" class="ip-btn" target="_blank" style="text-decoration: none; display: inline-block;">
-            Entrar no Discord
-        </a>
-        <div class="status online">
-            <span class="dot"></span>
-            <span>+10 Players</span>
-        </div>
-    </div>
-    
-    <div style="margin-top: 30px; color: var(--muted); font-size: 15px">
-        <strong>Link:</strong>
-        <span style="font-family: Orbitron">https://discord.gg/w6NQXFJ33A</span>
-    </div>
-</div>
-                
-              </div>
-
-              
-              <div style="margin-top: 18px; color: var(--muted); font-size: 17px">
-                <strong>IP:</strong>
-                <span id="serverIp" style="font-family: Orbitron"
-                  >177.185.252.90:25566</span
-                >
+                <p style="color: var(--muted); margin-bottom: 20px">
+                  Participe da nossa comunidade no discord para ficar por
+                  dentro de todas as atualizações!
+                </p>
+                <div class="hero-actions">
+                  <a href="https://discord.gg/KCkPMUySdq" class="ip-btn" target="_blank"
+                    style="text-decoration: none; display: inline-block">Entrar no Discord</a>
+                  <div class="status online">
+                    <span class="dot"></span>
+                    <span>+50 Players</span>
+                  </div>
+                </div>
+                <div style="
+                      margin-top: 30px;
+                      color: var(--muted);
+                      font-size: 15px;
+                    ">
+                  <strong>Link:</strong>
+                  <span style="font-family: Orbitron">https://discord.gg/KCkPMUySdq</span>
+                </div>
               </div>
             </div>
 
-            <!-- Banner Image -->
-            <div class="banner-image">
-              <img 
-                src="https://i.postimg.cc/x195ZCkR/banner.png" 
-                alt="Banner VornixMC - VORKYME Survival Ventils"
-              >
+            <div style="margin-top: 18px; color: var(--muted); font-size: 17px">
+              <strong>IP:</strong>
+              <span id="serverIp" style="font-family: Orbitron">jogar.vornixmc.com.br</span>
             </div>
+            <div id="tooltip" class="tooltip">IP copiado com sucesso!</div>
           </div>
 
-          <div>
-            <div
-              class="hero-card"
-              style="display: flex; flex-direction: column; gap: 12px"
-            >
-              <div
-                style="
+          <!-- Banner Image -->
+          <div class="banner-image">
+            <img src="https://i.postimg.cc/Zn8gtZhn/2.png" alt="Banner VornixMC" />
+          </div>
+        </div>
+
+        <!-- Loja rápida -->
+        <div>
+          <div class="hero-card" style="display: flex; flex-direction: column; gap: 12px">
+            <div style="
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
-                "
-              >
-                <strong style="color: var(--gold)">Loja rápida</strong>
-                <small style="color: var(--muted)">Consulte vantagens mais abaixo</small>
-              </div>
-              <div class="grid" style="grid-template-columns: 1fr">
-
-                <div
-                  class="card"
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                  "
-                >
-                  <div class="icon" aria-hidden="true">
-                    <div class="icon">
-                      <img
-                        src="https://i.postimg.cc/7Zq9R6Ct/redstone.png"
-                        alt="VIP Diamante"
-                        width="50px"
-                        height="auto"
-                      />
-                    </div>
-                  </div>
-                  <h3>Redstone Mensal</h3>
-                  <div class="price">R$9,99</div>
-                  <ul style="margin-top: 10px">
-                  </ul>
-                  <button class="buy" data-plan="Redstone" data-price="9.99">
-                    Comprar
-                  </button>
-                </div>
-                <div
-                  class="card"
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                  "
-                >
-                  <div class="icon" aria-hidden="true">
-                    <div class="icon">
-                      <img
-                        src="https://i.postimg.cc/RZvdYF3s/diamond.png"
-                        alt="VIP Diamante"
-                        width="50px"
-                        height="auto"
-                      />
-                    </div>
-                  </div>
-                  <h3>Diamante Mensal</h3>
-                  <div class="price">R$29,99</div>
-                  <ul style="margin-top: 10px">
-
-                  </ul>
-                  <button class="buy" data-plan="Diamante" data-price="29.99">
-                    Comprar
-                  </button>
-                </div>
-                <div
-                  class="card"
-                  style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                  "
-                >
-                  <div class="icon" aria-hidden="true">
-                    <div class="icon">
-                      <img
-                        src="https://i.postimg.cc/6pBcP37H/netherite.png"
-                        alt="VIP Diamante"
-                        width="50px"
-                        height="auto"
-                      />
-                    </div>
-                  </div>
-                  <h3>Netherite Mensal</h3>
-                  <div class="price">R$39,99</div>
-                  <ul style="margin-top: 10px">
-
-                  </ul>
-                  <button class="buy" data-plan="Netherite" data-price="39.99">
-                    Comprar
-                  </button>
-                </div>
-              </div>
+                ">
+              <strong style="color: var(--gold)">Loja rápida</strong>
+              <small style="color: var(--muted)">Consulte as <a style="color: white"
+                  href="https://vornixmc.com.br/#vips">Vantagens</a></small>
             </div>
-
-            
-
-        </section>
-
-        <!-- O restante do seu código permanece igual... -->
-        <!-- VIPS / Loja -->
-        <section id="vips" style="margin-top: 18px">
-          <h2
-            style="
-              font-family: Orbitron;
-              color: var(--gold);
-              margin-bottom: 12px;
-            "
-          >
-            Vantagens VIP
-          </h2>
-          <div class="grid" role="list">
-            <div class="card" role="listitem">
-              <div class="icon">
-                <img
-                  src="https://i.postimg.cc/7Zq9R6Ct/redstone.png"
-                  alt="VIP Diamante"
-                  width="50px"
-                  height="auto"
-                />
+            <div class="grid" style="grid-template-columns: 1fr">
+              <!-- VIP Redstone -->
+              <div class="card">
+                <div class="icon" aria-hidden="true">
+                  <div class="icon">
+                    <img src="https://i.postimg.cc/7Zq9R6Ct/redstone.png" alt="VIP Redstone" width="50" height="auto" />
+                  </div>
+                </div>
+                <h3 id="title-fastshop">Redstone Mensal</h3>
+                <div class="price">R$9,99</div>
+                <ul></ul>
+                <a class="buy" href="https://loja.vornixmc.com.br/pagamento.html?vip=VIP%20Redstone%2030%20Dias"
+                  style="text-decoration: none">Comprar</a>
               </div>
-              <h3>Redstone</h3>
-              <div class="price">R$9,99</div>
-              <ul>
-                    <li>Acesso ao /kit redstone;</li>
-                    <li>Limite do terreno aumentado para 2304 blocos (48x48);</li>
-                    <li>Desconto de 5% na loja;</li>
-                    <li>Acesso ao /enderchest e /workbench;</li>  
-                    <li>Acesso à loja VIP;</li>      
-                    <li>Skin custom para jogador pirata;</li> 
-                    <li>Chat com letras coloridas.</li>  
-              </ul>
-              <button class="buy" data-plan="Redstone" data-price="9.99">
-                Comprar — R$9,99
-              </button>
-            </div>
 
-            <div class="card">
-              <div class="icon">
-                <img
-                  src="https://i.postimg.cc/RZvdYF3s/diamond.png"
-                  alt="VIP Diamante"
-                  width="50px"
-                  height="auto"
-                />
+              <!-- VIP Diamante -->
+              <div class="card">
+                <div class="icon" aria-hidden="true">
+                  <div class="icon">
+                    <img src="https://i.postimg.cc/RZvdYF3s/diamond.png" alt="VIP Diamante" width="50" height="auto" />
+                  </div>
+                </div>
+                <h3 id="title-fastshop">Diamante Mensal</h3>
+                <div class="price">R$29,99</div>
+                <ul></ul>
+                <a class="buy" href="https://loja.vornixmc.com.br/pagamento.html?vip=VIP%20Diamante%2030%20Dias"
+                  style="text-decoration: none">Comprar</a>
               </div>
-              <h3>Diamante</h3>
-              <div class="price">R$29,99</div>
-              <ul>
-                    <li>Vantagens do VIP Redstone</li>
-                    <li>Limite do terreno aumentado para 4096 blocos (64x64);</li>
-                    <li>Acesso ao /voar em seu terreno</li>
-                    <li>Acesso ao /kit diamante</li>
-                    <li>Limite aumentado para 5 homes</li>
-                    <li>TP instantâneo para /tpa, /home, etc.</li>
-                    <li>Usar chat/placa com letras coloridas</li>
-              </ul>
-              <button class="buy" data-plan="Diamante" data-price="29.99">
-                Comprar — R$29,99
-              </button>
-            </div>
 
-            <div class="card">
-              <div class="icon">
-                <img
-                  src="https://i.postimg.cc/6pBcP37H/netherite.png"
-                  alt="VIP Diamante"
-                  width="50px"
-                  height="auto"
-                />
+              <!-- VIP Netherite -->
+              <div class="card">
+                <div class="icon" aria-hidden="true">
+                  <div class="icon">
+                    <img src="https://i.postimg.cc/6pBcP37H/netherite.png" alt="VIP Netherite" width="50"
+                      height="auto" />
+                  </div>
+                </div>
+                <h3 id="title-fastshop">Netherite Mensal</h3>
+                <div class="price">R$39,99</div>
+                <ul></ul>
+                <a class="buy" href="https://loja.vornixmc.com.br/pagamento.html?vip=VIP%20Netherite%2030%20Dias"
+                  style="text-decoration: none">Comprar</a>
               </div>
-              <h3>Netherite</h3>
-              <div class="price">R$39,99</div>
-              <ul>
-                    <li>Vantagens do VIP Diamante</li>
-                    <li>Limite do terreno aumentado para 16384 blocos (128x128);</li>
-                    <li>/fly liberado na dimensão principal</li>
-                    <li>Acesso ao /kit netherite</li>
-                    <li>Limite aumentado para 10 homes</li>
-                    <li>Desconto de 10% na Loja e LojaVIP</li>
-                    <li>2x XP Boost</li>
-                    <li>Prioridade na fila</li>
-                    <li>Acesso ao /reparar 1 vez ao dia</li>
-              </ul>
-              <button class="buy" data-plan="Netherite" data-price="39.99">
-                Comprar — R$39,99
-              </button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Loja com opções de pagamento -->
-        <section id="loja" style="margin-top: 24px">
-          <h2
-            style="
+      <!-- Promoções Extras -->
+      <!-- Vantagens VIP -->
+      <section id="vips" style="margin-top: 32px">
+        <h2
+          style="font-family: Orbitron; color: var(--gold); text-align: center; font-size: 36px; margin-bottom: 20px;">
+          Vantagens VIP
+        </h2>
+        <p style="color: white; text-align: center; text-decoration: none;">Ao realizar compras você concorda com os <a
+            style="color: white" href="https://termos.vornixmc.com.br">Termos de Uso e Compras</a></p>
+
+
+        <div class="vip-cards-container">
+          <!-- Redstone -->
+          <div class="vip-card">
+            <div class="icon">
+              <img src="https://i.postimg.cc/7Zq9R6Ct/redstone.png" alt="Redstone">
+            </div>
+            <h3>Redstone</h3>
+            <div class="price">R$9,99</div>
+            <ul class="advantages">
+              <li>Permissão para criar lojas</li>
+              <li>/loja com menu exclusivo</li>
+              <li>Comandos /anunciar e /criarloja</li>
+              <li>/warp vip (área exclusiva para VIPs, com bigornas, mesa de encantamento nível 30, loja de Gemas, etc.)
+              </li>
+              <li>Cosméticos exclusivos</li>
+              <li>Pet Redstone</li>
+              <li>Redução no cooldown de TP</li>
+              <li>2.000 VornixCoins + 10 Gems</li>
+              <li>Kit VIP + 1 chave</li>
+              <li>/vs com 1 hotbar + /warp vip</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('VIP Redstone 30 Dias')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- Diamante -->
+          <div class="vip-card">
+            <div class="icon">
+              <img src="https://i.postimg.cc/RZvdYF3s/diamond.png" alt="Diamante">
+            </div>
+            <h3>Diamante</h3>
+            <div class="price">R$29,99</div>
+            <ul class="advantages">
+              <li><strong>Todas as vantagens do Redstone</strong></li>
+              <li>/hat, partículas e mais diversos cosméticos exclusivos</li>
+              <li>Pet Allay exclusivo</li>
+              <li>Maior redução de cooldown entre teleportes</li>
+              <li>/voar no seu próprio terreno</li>
+              <li>/back (voltar ao lugar onde você morreu pela última vez)</li>
+              <li>Terreno aumentado (4096 blocos)</li>
+              <li>9.000 Coins + 20 Gems</li>
+              <li>Equipamento completo Netherite, com armaduras e ferramentas encantadas + chave Diamante</li>
+              <li>/vs com 2 hotbars</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('VIP Diamante 30 Dias')">
+              Comprar
+            </button>
+          </div>
+
+          <!-- Netherite -->
+          <div class="vip-card">
+            <div class="icon">
+              <img src="https://i.postimg.cc/6pBcP37H/netherite.png" alt="Netherite">
+            </div>
+            <h3>Netherite</h3>
+            <div class="price">R$39,99</div>
+            <ul class="advantages">
+              <li><strong>Todas as vantagens do Diamante e Redstone</strong></li>
+              <li>Montarias exclusivas no /cosmeticos</li>
+              <li>Pet Panda Filhote</li>
+              <li><strong>Zero cooldown entre teleportes</strong></li>
+              <li>/voar em terrenos aliados</li>
+              <li>Terreno colossal (16384 blocos)</li>
+              <li>19.000 Coins + 50 Gems</li>
+              <li>Equipamento completo Netherite, com armaduras e ferramentas encantadas + chave Netherite</li>
+              <li>/vs com 3 hotbars</li>
+              <li>10% de desconto na loja oficial do servidor</li>
+              <li>Suporte prioritário máximo (no servidor e no Discord)</li>
+            </ul>
+            <button class="buy" onclick="goToPayment('VIP Netherite 30 Dias')">
+              Comprar
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Loja -->
+      <section id="loja" style="margin-top: 24px">
+        <h2 style="
               font-family: Orbitron;
               color: var(--gold);
               margin-bottom: 12px;
-            "
-          >
-            Loja
-          </h2>
-          <div class="hero-card">
-            <p style="color: var(--muted)">
-              Escolha um plano, selecione o pagamento e confirme. Nosso sistema 
-              ativará seu VIP automaticamente para você!
-            </p>
-
-            <div
-              style="
+            ">
+          Loja
+        </h2>
+        <div class="hero-card">
+          <p style="color: var(--muted)">
+            Veja nossos produtos em nossa loja!
+          </p>
+          <div style="
                 display: flex;
                 gap: 12px;
                 flex-wrap: wrap;
                 margin-top: 12px;
-              "
-            >
-              <select id="quickPlan" class="select" style="max-width: 260px">
-                <option value="Redstone|9.99">Redstone — R$9,99</option>
-                <option value="Diamante|29.99">Diamante — R$29,99</option>
-                <option value="Netherite|39.99">Netherite — R$39,99</option>
-              </select>
-
-              <select
-                id="paymentMethod"
-                class="select"
-                style="max-width: 260px"
-              >
-                <option value="picpay">PicPay</option>
-                <option value="mercadopago">Mercado Pago</option>
-                <option value="paypal">PayPal</option>
-              </select>
-
-              <button class="btn" id="checkoutBtn">Ir para pagamento</button>
-            </div>
-
-            <p style="color: var(--muted); margin-top: 10px; font-size: 13px">
-              Após o pagamento, aguarde a ativação automática do seu VIP.
-            </p>
+              ">
+            <a href="loja.html" class="btn" style="text-decoration: none">Ir para Loja</a>
           </div>
-        </section>
+          <p style="color: var(--muted); margin-top: 10px; font-size: 11px">
+            Leia os termos em <a style='color: white ' href="https://termos.vornixmc.com.br">Termos</a>.
+          </p>
+        </div>
+      </section>
 
-        <!-- Sobre -->
-        <section id="sobre" style="margin-top: 24px">
-          <h2
-            style="
+      <!-- Sobre -->
+      <section id="sobre" style="margin-top: 24px">
+        <h2 style="
               font-family: Orbitron;
               color: var(--gold);
               margin-bottom: 12px;
-            "
-          >
-            Sobre o servidor
-          </h2>
-          <div class="about">
-            <p>
-              <strong>VornixMC — Survival Vanilla</strong>. Foco em comunidade,
-              economia justa, eventos com frequência e suporte ativo. Jogabilidade
-              vanilla com pequenas melhorias no QoL (como kits e ranks VIP) para
-              quem quiser apoiar nosso servidor ficar online!
-            </p>
-            <ul style="color: var(--muted)">
-              <li>
-                Regras essenciais: confira as regras em nosso discord
-              </li>
-              <li>Estilo: Survival Vanilla, com eventos PvE/PvP programados.</li>
-              <li>
-                Ativação de VIP: automática, assim que o pagamento for confirmado.
-              </li>
-            </ul>
-          </div>
-        </section>
+            ">
+          Sobre o servidor
+        </h2>
+        <div class="about">
+          <p style="color: var(--muted)">
+            <strong>VornixMC — Survival Vanilla</strong>. Desde 2025. Foco em
+            comunidade, eventos com frequência e suporte ativo. Jogabilidade
+            vanilla com pequenas melhorias no QoL (como kits e ranks VIP) para
+            quem quiser apoiar nosso servidor ficar online!
+          </p>
+          <ul style="color: var(--muted)">
+            <li>Regras essenciais: confira as regras em nosso discord</li>
+            <li>
+              Estilo: Survival Vanilla, com eventos PvE/PvP programados.
+            </li>
+            <li>
+              Ativação de VIP: ativado após confirmação de pagamento via
+              ticket. Siga as instruções na página de pagamento.
+            </li>
+          </ul>
+        </div>
+      </section>
 
-        <footer>
-          <div>
-            <div style="font-weight: 800; color: var(--gold)">VornixMC</div>
-            <div style="color: var(--muted); margin-top: 6px">
-              IP:
-              <span id="footerIp" style="font-family: Orbitron"
-                >177.185.252.90:25566</span
-              >
-            </div>
+      <!-- Footer -->
+      <footer>
+        <div>
+          <div style="font-weight: 800; color: var(--gold)">VornixMC</div>
+          <div style="color: var(--muted); margin-top: 6px">
+            IP:
+            <span id="footerIp" style="font-family: Orbitron">jogar.vornixmc.com.br</span>
           </div>
-
-          <div class="socials">
-            <a href="https://discord.gg/w6NQXFJ33A" id="discord">Discord</a>
-            <a href="https://www.instagram.com/vornixmc/" id="instagram">Instagram</a>
-          </div>
-
-          <div
-            style="
+        </div>
+        <div class="socials">
+          <a href="https://discord.gg/75ACC7wNsN" id="discord">Discord</a>
+          <a href="https://www.instagram.com/vornixmc/" id="instagram">Instagram</a>
+          <a href="https://termos.vornixmc.com.br/" id="termos">Termos de Uso e Compras</a>
+        </div>
+        <div style="
               width: 100%;
               text-align: center;
               color: var(--muted);
               margin-top: 12px;
-            "
-          >
-            © <span id="year"></span> VornixMC — Todos os direitos reservados.
-          </div>
-        </footer>
-      </main>
-    </div>
-
-    <div id="tooltip" class="tooltip">IP copiado!</div>
-
-    <!-- Modal de compra -->
-    <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true">
-      <div class="modal" role="document">
-        <h3 id="modalTitle">Confirmar compra</h3>
-        <div id="modalBody" style="color: var(--muted); margin-top: 8px">
-          Resumo
+            ">
+          © <span id="year"></span> VornixMC — Todos os direitos reservados.
         </div>
+      </footer>
+    </main>
+  </div>
 
-        <div class="modal-actions">
-          <button class="btn secondary" id="modalCancel">Cancelar</button>
-          <button class="btn" id="modalGoPayment">Ir ao pagamento</button>
-        </div>
-      </div>
-    </div>
+  <script src="index.js"></script>
+  </script>
+</body>
+
+</html>
