@@ -44,7 +44,7 @@ Página relacionada ao **fluxo de pagamento** dos produtos da loja.
 ### 📜 `termos.html`
 Página contendo os **termos de uso / termos de serviço** do site.
 
-### 👥 `Equipe/`
+### 👥 `equipe.html`
 Diretório responsável por exibir os **membros da equipe staff** do projeto.
 
 ### 🔁 `restart.sh`
