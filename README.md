@@ -6,15 +6,15 @@ Este repositório contém os arquivos do **website do projeto**, incluindo pági
 
 # 📁 Estrutura do Projeto
 
-├── equipe.html # Página ou diretório responsável por mostrar a equipe staff  
-├── favicon.png # Ícone do site exibido na aba do navegador  
-├── index.css # Arquivo de estilos principal do site  
-├── index.html # Página inicial do website  
-├── index.js # Scripts JavaScript utilizados no site  
-├── loja.html # Página da loja  
-├── pagamento.html # Página de processamento ou instruções de pagamento  
-├── termos.html # Página de termos de uso / termos de serviço  
-└── restart.sh # Script para reiniciar o serviço do site  
+├── equipe.html ⮕ Página ou diretório responsável por mostrar a equipe staff  
+├── favicon.png ⮕ Ícone do site exibido na aba do navegador  
+├── index.css ⮕ Arquivo de estilos principal do site  
+├── index.html ⮕ Página inicial do website  
+├── index.js ⮕ Scripts JavaScript utilizados no site  
+├── loja.html ⮕ Página da loja  
+├── pagamento.html ⮕ Página de processamento ou instruções de pagamento  
+├── termos.html ⮕ Página de termos de uso / termos de serviço  
+└── restart.sh ⮕ Script para reiniciar o serviço do site  
 
 
 ---
