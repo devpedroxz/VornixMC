@@ -68,7 +68,7 @@ Bash
 Este projeto foi desenvolvido para ser simples, leve e facilmente hospedado em qualquer servidor web.
 
 Ideal para:
-hospedagem em VPS
-servidores estáticos
-painéis web
-projetos pequenos e médios
+- Hospedagem em VPS;  
+- Servidores estáticos;  
+- Painéis web;  
+- Projetos pequenos e médios.  
